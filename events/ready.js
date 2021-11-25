@@ -1,7 +1,10 @@
+const { log, log_type } = require('../functions/utils');
+
+
 module.exports = {
     name: 'ready',
     once: true,
-    execute(discord) {
-        console.log(`Ready`);
+    async execute(discord) {
+        log(log_type.DISCORD, 'Ready');
     },
 };

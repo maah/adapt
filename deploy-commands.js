@@ -14,19 +14,26 @@ for (const file of commandFiles) {
 }
 
 
+// Upload commands
 const rest = new REST({ version: '9' }).setToken(process.env.DISCORD_TOKEN);
 
-// Server commands
-if (process.env.DISCORD_GUILD_ID) {
-    rest.put(Routes.applicationGuildCommands(process.env.DISCORD_CLIENT_ID, process.env.DISCORD_GUILD_ID), { body: commands })
-        .then(() => console.log('Successfully registered application commands.'))
-        .catch(console.error);
-}
+rest.put(Routes.applicationGuildCommands(process.env.DISCORD_CLIENT_ID, process.env.DISCORD_GUILD_ID), { body: commands })
+    .then(() => {
+        console.log('Successfully registered application commands.');
 
+        // Birthday command permissions
+        const permissions = [
+            {
+                id: process.env.DISCORD_OWNER_ID,
+                type: 2,
+                permission: true,
+            },
+        ];
 
-// Global commands
-else {
-    rest.put(Routes.applicationCommands(process.env.DISCORD_CLIENT_ID), { body: commands })
-        .then(() => console.log('Successfully registered application commands.'))
-        .catch(console.error);
-}
+        const json = { permissions: permissions };
+
+        rest.put(Routes.applicationCommandPermissions(process.env.DISCORD_CLIENT_ID, process.env.DISCORD_GUILD_ID, '913187763497598986'), { body: json })
+            .then(() => console.log('Successfully registered command permissions.'))
+            .catch(console.error);
+    })
+    .catch(console.error);

@@ -1,23 +1,47 @@
-# Discord bot template (Node.js)
+# Adapt (Discord Bot)
 
-This template is based on [discordjs.guide](https://discordjs.guide/).  
-Please create a `.env` file with the variables below.  
-[Learn more about environment variables here](https://discordjs.guide/creating-your-bot/#using-environment-variables).
+Adapt is a simple bot made for a small private server.  
+Its goal is to bring everyone together, focused on personalization, conversions, and translation.
 
-## This template includes:
+## Commands
+- **Role color**  
+/color get  
+/color set
 
-### Slash commands
-- A simple "Ping" command that replies with "Pong"
+- **Currency conversion**  
+/currency common  
+/currency any  
+/currency find
 
-### Events
-- A simple "ready" event that is fired after the bot is logged into Discord
-- A "interactionCreate" event which handles slash commands
+- **Unit conversion**  
+/unit area  
+/unit data  
+/unit length  
+/unit mass  
+/unit speed  
+/unit temperature  
+/unit volume  
+/unit time
 
-### Scripts
-- index: the bot itself
-- deploy-commands: run this to update slash commands
+- **Time zone conversion, display time**  
+/time  
+/time convert
 
-### Environment variables
-- DISCORD_TOKEN: your bot's token
-- DISCORD_CLIENT_ID: your bot's Application ID
-- DISCORD_GUILD_ID: (Optional) the server to push commands to, or all servers if omitted
+- **Translation**  
+/translate
+
+- **\[Owner-only\] Birthday message updater**  
+/birthday add  
+/birthday edit  
+/birthday remove
+
+## Environment variables
+DISCORD_TOKEN  
+DISCORD_CLIENT_ID  
+DISCORD_GUILD_ID  
+DISCORD_OWNER_ID
+
+DISCORD_BIRTHDAY_CHANNEL_ID  
+DISCORD_BIRTHDAY_MESSAGE_ID  
+
+EXCHANGE_RATES_API_KEY

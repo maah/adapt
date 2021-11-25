@@ -1,19 +1,34 @@
 {
-  "name": "discord-bot-template",
+  "name": "adapt",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple discord bot made for a small private server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maah/Adapt.git"
   },
   "keywords": [],
   "author": "maah",
-  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maah/Adapt/issues"
+  },
+  "homepage": "https://github.com/maah/Adapt#readme",
   "dependencies": {
     "@discordjs/builders": "^0.8.1",
     "@discordjs/rest": "^0.1.0-canary.0",
+    "@vvo/tzdb": "^6.33.0",
+    "convert-units": "^3.0.0-beta.2",
     "discord-api-types": "^0.24.0",
-    "discord.js": "^13.3.0",
-    "dotenv": "^10.0.0"
+    "discord.js": "^13.3.1",
+    "dotenv": "^10.0.0",
+    "luxon": "^2.0.2",
+    "node-fetch": "^2.6.5",
+    "translatte": "^3.0.1"
+  },
+  "devDependencies": {
+    "jest": "^27.3.1"
   }
 }
