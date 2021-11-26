@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const roleColors = require('../data/roleColors.json');
 
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('color')
