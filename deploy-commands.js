@@ -32,7 +32,7 @@ rest.put(Routes.applicationGuildCommands(process.env.DISCORD_CLIENT_ID, process.
 
         const json = { permissions: permissions };
 
-        rest.put(Routes.applicationCommandPermissions(process.env.DISCORD_CLIENT_ID, process.env.DISCORD_GUILD_ID, '913187763497598986'), { body: json })
+        rest.put(Routes.applicationCommandPermissions(process.env.DISCORD_CLIENT_ID, process.env.DISCORD_GUILD_ID, '915611973746577458'), { body: json })
             .then(() => console.log('Successfully registered command permissions.'))
             .catch(console.error);
     })

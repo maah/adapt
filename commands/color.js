@@ -34,7 +34,7 @@ module.exports = {
         }
 
         if (interaction.options.getSubcommand() == 'get') {
-            await interaction.reply('Your current color is: **' + role.hexColor + '**.\nChange it using an hexadecimal color code (example: #000000).');
+            await interaction.reply('Your current color is: **' + role.hexColor + '**.\nTo change it, use /color set.');
             return;
         }
 
