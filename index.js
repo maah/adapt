@@ -2,7 +2,7 @@ require('dotenv').config();
 const { Client: DiscordClient, Collection, Intents } = require('discord.js');
 const { DateTime } = require('luxon');
 const fs = require('fs');
-const { updateExchangeRates } = require('./functions/exchangeRates');
+const { updateExchangeRates } = require('./utils/exchangeRates');
 
 
 
@@ -16,6 +16,7 @@ async function Main() {
 
 	// Update data
 	await updateExchangeRates();
+	setInterval(updateExchangeRates, 90000000); // 25 hours
 	
 	if (!fs.existsSync('./data/roleColors.json'))
 		fs.writeFileSync('./data/roleColors.json', '{}');
