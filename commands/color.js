@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { log_type, log } = require('../utils/logger');
 const roleColors = require('../data/roleColors.json');
 
 
@@ -22,14 +23,14 @@ module.exports = {
         const roleName = roleColors[interaction.member.id];
 
         if (!roleName) {
-            await interaction.reply('Cannot find your custom role\'s name.');
+            await interaction.reply('Cannot find your custome role\'s name.\nCC: <@' + process.env.DISCORD_OWNER_ID + '> (fix required).');
             return;
         }
 
         const role = interaction.guild.roles.cache.find(r => r.name == roleName);
 
         if (!role) {
-            await interaction.reply('Cannot find your custom role.');
+            await interaction.reply('Cannot find your custom role.\nCC: <@' + process.env.DISCORD_OWNER_ID + '> (fix required).');
             return;
         }
 
@@ -47,8 +48,8 @@ module.exports = {
             await interaction.reply(`Role updated '<@&${role.id}>'.`);
         }
         catch (err) {
-            console.error(err);
-            await interaction.reply('Wrong color given, hexadecimal color code expected (#000000).');
+            log(log_type.DISCORD, `/color ${newColor}: ${err}`, true);
+            await interaction.reply({ content: 'Wrong color given, hexadecimal color code expected (#000000).', ephemeral: true });
         }
     },
 };
